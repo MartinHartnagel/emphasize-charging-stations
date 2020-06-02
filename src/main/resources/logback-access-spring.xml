@@ -1,0 +1,21 @@
+<configuration>
+    <springProfile name="!otc">
+        <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>common</pattern>
+            </encoder>
+        </appender>
+        <appender-ref ref="CONSOLE" />
+    </springProfile>
+    <springProfile name="otc">
+        <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder class="net.logstash.logback.encoder.LogstashAccessEncoder">
+                <fieldNames>
+                    <requestHeaders>request_headers</requestHeaders>
+                </fieldNames>
+                <lowerCaseHeaderNames>true</lowerCaseHeaderNames>
+            </encoder>
+        </appender>
+        <appender-ref ref="CONSOLE" />
+    </springProfile>
+</configuration>

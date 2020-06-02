@@ -1,0 +1,51 @@
+server:
+  port: 8080
+  # For local development you need this additional path
+  servlet:
+    contextPath: /charging-stations
+
+management:
+  server:
+    port: 8081
+  endpoints:
+    enabled-by-default: false
+    web:
+      exposure.include: info, health, metrics, env, configprops
+      base-path: /system
+  endpoint:
+    metrics.enabled: false
+    health.enabled: false
+    health.show-details: never
+    info.enabled: false
+    env.enabled: false
+    configprops.enabled: false
+  metrics:
+    export:
+      statsd:
+        flavor: telegraf
+        enabled: true
+        step: 1m
+        host: localhost
+        port: 8125
+
+#properties to configure db
+spring:
+  application:
+    name: de.emphasize.chargingstations
+  # Jackson config
+  jackson:
+    serialization.WRITE_DATES_AS_TIMESTAMPS: false
+  jmx:
+    enabled: false
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration
+
+authentication-settings:
+  enableSwaggerSecurityPath: true
+
+# swagger description
+swagger:
+  api:
+    title: Charging Station Service
+    description: "The charging station service provides a REST interface to edit and retrieve charging stations."
+    version: 1.0

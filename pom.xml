@@ -7,35 +7,40 @@
   <packaging>jar</packaging>
   <name>ChargingStation::Service</name>
   <description>The charging station service provides a REST interface to handle charging station addind and retrieving.</description>
+  <scm>
+    <developerConnection>scm:git:ssh://github.com/MartinHartnagel/emphasize-charging-stations</developerConnection>
+  </scm>
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.0.4.RELEASE</version>
+    <version>2.3.0.RELEASE</version>
     <relativePath/>
     <!-- lookup parent from repository -->
   </parent>
+  <prerequisites>
+    <maven>3.0</maven>
+  </prerequisites>
   <properties>
     <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <assertj.version>3.10.0</assertj.version>
-    <commons-lang3.version>3.7</commons-lang3.version>
-    <guava.version>25.1-jre</guava.version>
-    <jackson-annotations.version>2.8.8</jackson-annotations.version>
+    <assertj.version>3.16.1</assertj.version>
+    <commons-lang3.version>3.10</commons-lang3.version>
+    <jackson-annotations.version>2.11.0</jackson-annotations.version>
     <commons-beanutils.version>1.9.3</commons-beanutils.version>
-    <commons-io.version>2.6</commons-io.version>
+    <commons-io.version>2.7</commons-io.version>
     <jsonassert.version>1.5.0</jsonassert.version>
     <swagger-annotations.version>1.5.19</swagger-annotations.version>
     <swagger-models.version>1.5.19</swagger-models.version>
-    <junit.version>4.12</junit.version>
+    <junit.version>5.13</junit.version>
     <springfox.version>2.9.2</springfox.version>
-    <spring-plugin.version>1.2.0.RELEASE</spring-plugin.version>
-    <iso11783_10.version>1.9.0</iso11783_10.version>
-    <lombok.version>1.18.2</lombok.version>
-    <dockerfile-maven-plugin-version>1.4.2</dockerfile-maven-plugin-version>
+    <spring-plugin.version>2.0.0.RELEASE</spring-plugin.version>
+    <lombok.version>1.18.12</lombok.version>
+    <dockerfile-maven-plugin-version>1.4.13</dockerfile-maven-plugin-version>
     <timestamp>${maven.build.timestamp}</timestamp>
     <maven.build.timestamp.format>yyyy-MM-dd HH:mm</maven.build.timestamp.format>
     <spring-integrationtest.version>2.0.0</spring-integrationtest.version>
+    <mockito.version>3.3.3</mockito.version>
   </properties>
   <build>
     <defaultGoal>clean spring-boot:run</defaultGoal>
@@ -67,10 +72,6 @@
             </configuration>
           </execution>
         </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>build-helper-maven-plugin</artifactId>
       </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
@@ -292,14 +293,6 @@
       <artifactId>spring-boot-starter-actuator</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.springframework.plugin</groupId>
-      <artifactId>spring-plugin-core</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.plugin</groupId>
-      <artifactId>spring-plugin-metadata</artifactId>
-    </dependency>
-    <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-json</artifactId>
     </dependency>
@@ -349,7 +342,7 @@
     <dependency>
       <groupId>net.logstash.logback</groupId>
       <artifactId>logstash-logback-encoder</artifactId>
-      <version>5.2</version>
+      <version>6.4</version>
     </dependency>
     <dependency>
       <groupId>net.rakugakibox.spring.boot</groupId>
@@ -364,6 +357,18 @@
       <groupId>org.apache.httpcomponents</groupId>
       <artifactId>httpclient</artifactId>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <scope>test</scope>
+      <version>3.3.3</version>
+    </dependency>
+    <dependency>
+      <groupId>net.bytebuddy</groupId>
+      <artifactId>byte-buddy</artifactId>
+      <scope>test</scope>
+      <version>1.10.10</version>
     </dependency>
   </dependencies>
 </project>

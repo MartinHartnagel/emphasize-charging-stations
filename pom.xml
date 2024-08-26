@@ -33,7 +33,7 @@
     <swagger-annotations.version>1.5.19</swagger-annotations.version>
     <swagger-models.version>1.5.19</swagger-models.version>
     <junit.version>5.13</junit.version>
-    <springfox.version>2.9.2</springfox.version>
+    <springfox.version>2.10.0</springfox.version>
     <spring-plugin.version>2.0.0.RELEASE</spring-plugin.version>
     <lombok.version>1.18.12</lombok.version>
     <dockerfile-maven-plugin-version>1.4.13</dockerfile-maven-plugin-version>
